@@ -3,100 +3,118 @@ CRUD Application
 -----------
 Spring boot, Jpa, Mysql
 ----
-<h6>Requirements:<br>
-    a) Mysql
+<h6>Requirements:
+     Mysql
 </h6>
 
 <h6>When Application starts it will save some initial data to tables</h6>
 
 
- Item api:
+ <h4>ITEM API:</b>
  
- 1) Get All items:
- 
- <p>
-    Request: http://localhost:8080/item/list<br>
-    Response:<br>
-     [{"id":1,"name":"soap","stocks":1000,"unitPrice":10.5,"description":"Baby Soap"},{"id":2,"name":"Tooth Brush","stocks":500,"unitPrice":45.5,"description":"Tooth Brush"},{"id":3,"name":"Shirt","stocks":100,"unitPrice":1500.0,"description":"Shirt"},{"id":4,"name":"Office Bag","stocks":400,"unitPrice":10000.0,"description":"Office Bag"},{"id":5,"name":"Bottle","stocks":800,"unitPrice":450.5,"description":"Bottle"}]
- </p>
-    
- 2) Get Item by Id:
+ 1) <b>Get All items:</b>
 
-<p>    
-    Request: http://localhost:8080/item/5<br>
-    Response:<br>
-     {"id":5,"name":"Bottle","stocks":800,"unitPrice":450.5,"description":"Bottle"}
-</p> 
-   
- 3) Add a Item:
  
- <p> 
-    Request:<br> 
-       url:<br>
-        http://localhost:8080/item/add<br>
-       type:<br>
-        POST<br>
-       request Header:<br>
-        Content-Type:application/json<br>
-       body:<br>
+    Request: http://localhost:8080/item/list
+    Response:
+     [{"id":1,"name":"soap","stocks":1000,"unitPrice":10.5,"description":"Baby Soap"},{"id":2,"name":"Tooth Brush","stocks":500,"unitPrice":45.5,"description":"Tooth Brush"},{"id":3,"name":"Shirt","stocks":100,"unitPrice":1500.0,"description":"Shirt"},{"id":4,"name":"Office Bag","stocks":400,"unitPrice":10000.0,"description":"Office Bag"},{"id":5,"name":"Bottle","stocks":800,"unitPrice":450.5,"description":"Bottle"}]
+    
+ 2) <b>Get Item by Id:</b>
+
+
+    Request: http://localhost:8080/item/5
+    Response:
+     {"id":5,"name":"Bottle","stocks":800,"unitPrice":450.5,"description":"Bottle"}
+   
+ 3) <b>Add a Item:</b>
+ 
+ 
+    Request: 
+       url:
+        http://localhost:8080/item/add
+       type:
+        POST
+       request Header:
+        Content-Type:application/json
+       body:
         {"name":"sanitizer",
          "stocks":"40",
          "unitPrice":"80.0",
          "description":"Sanitizer"
         }
         
-    Response:<br>
+    Response:
         Item Added Successfully !
- </p>       
- 4)  Update a name and description of give item id:
+        
+ 4)  <b>Update a name and description of give item id:</b>
+ 
   
- <p>
-     Request:<br> 
-        url:<br>
-         http://localhost:8080/item/update/4<br>
-        type:<br>
-         PUT<br>
-        request Header:<br>
-         Content-Type:application/json<br>
-        body:<br>
+     Request: 
+        url:
+         http://localhost:8080/item/update/4
+        type:
+         PUT
+        request Header:
+         Content-Type:application/json
+        body:
          {"name":"Office Bag imported from US",
           "description":"Office Bag imported from US"
          }
          
-     Response:<br>
+     Response:
          Item Updated Successfully !
- </p>
- 5) Delete Item of give item id:
+ 
+ 5) <b>Delete Item of give item id:</b>
+ 
   
-     Request:<br> 
-        url:\
-         http://localhost:8080/item/delete/3\
-        type:\
-         DELETE\
-        request Header:\
-         Content-Type:application/json\
+     Request:
+        url:
+         http://localhost:8080/item/delete/3
+        type:
+         DELETE
+        request Header:
+         Content-Type:application/json
          
-     Response:\
+     Response:
          Item with given Id is deleted Successfully !
              
 -----
-Order Api
+<h4>ORDER API</h4>
 
-1) Single Order:\
+1) <b>Single Order:</b>
 
-    Request:\ 
-        url:\
-         http://localhost:8080/order\
-        type:<br>
-         POST<br>
-        request Header:<br>
-         Content-Type:application/json<br>
-        body:<br>
+
+    Request: 
+        url:
+         http://localhost:8080/order
+        type:
+         POST
+        request Header:
+         Content-Type:application/json
+        body:
          {"customer":{"id":"1"},
           "itemOrdered": {"item":{"id":"1"},"quantity":"10"},
          "type":"SINGLE"
         }
          
-    Response:<br>
+    Response:
         SUCCESS
     
+ 2) <b>Bulk Order:</b>
+ 
+
+    Request: 
+        url:
+         http://localhost:8080/order
+        type:
+         POST
+        request Header:
+         Content-Type:application/json
+        body:
+         {"customer":{"id":"1"},
+          "itemOrdered": {"item":{"id":"1"},"quantity":"10"},
+         "type":"BULK"
+        }
+         
+    Response:
+        SUCCESS
